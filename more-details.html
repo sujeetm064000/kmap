@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <style>
+        /* Additional styles for dropdown and preview */
+        .level-select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #000;
+            font-size: 1rem;
+            border-radius: 4px;
+        }
+
+        .level-select option {
+            color: black;
+        }
+
+        .level-select option:hover {
+            background-color: transparent;
+            color: grey;
+        }
+
+        .image-preview {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        #detailsForm {
+            max-width: calc(100vw - 40%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+            height: calc(100vh - 15%);
+        }
+
+        #detailsForm label,
+        #detailsForm select, 
+        #detailsForm input[type="text"],
+        #detailsForm input[type="file"],
+        #detailsForm input[type="date"],
+        #detailsForm textarea {
+            grid-column: span 1;
+        }
+
+        #detailsForm input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+
+        #detailsForm label[for="publicView"] {
+            display: flex;
+            align-items: center;
+            grid-column: span 2;
+        }
+
+        
+        .form-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: row;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            max-width: 800px;
+            margin: 5px 5px;
+            float: right;
+        }
+
+        .card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-content p {
+            margin: 0.5rem 0;
+            word-wrap: break-word;
+        }
+
+        .edit-button{
+            height: 45px;
+        }
+    </style>
+</head>
+<body>
+    <input id="mode" value="" type="hidden">
+    <div class="container">
+        <aside class="sidebar">
+            <h1>More Details</h1>
+            <nav>
+                <a href="index.html">Map</a>
+            </nav>
+            <div class="user-info">
+                <div id="userCircle" class="circle"></div>
+                <p id="userName">Please login</p>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <div id="userCard" style="display: none;">
+                
+            </div>
+            <button class="buttonCss" id="addNewDetails" style="display: none;" onclick="addNewDetails()">Add New Level</button>
+
+            <div class="form-container" id="formContainer" style="display: none;">
+                <form id="detailsForm" enctype="multipart/form-data">
+                    <label for="level">Level:</label>
+                    <select id="level" name="level" class="level-select" required>
+                    </select>
+
+                    <label for="experience">Experience:</label>
+                    <textarea id="experience" name="experience" rows="5" required></textarea>
+
+                    <label for="bio">Bio:</label>
+                    <input type="text" id="bio" name="bio" required>
+
+                    <label for="image">Profile Image:</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+
+                    <label for="completionDate">Completion Date:</label>
+                    <input type="date" id="completionDate" name="completionDate" required>
+
+                    <label for="publicView">
+                        Public View:
+                        <input type="checkbox" id="publicView" name="publicView" required>
+                    </label>
+
+                    <button type="submit">Save Details</button>
+                </form>
+
+                <div class="image-preview">
+                    <img id="profileImage" src="" alt="Profile Image" style="visibility: hidden;">
+                    <p id="noImageText" style="visibility: hidden;">No profile image available. Please upload one.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="moredetails.js"></script>
+</body>
+</html>
