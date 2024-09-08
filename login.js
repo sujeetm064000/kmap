@@ -31,13 +31,14 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 document.getElementById('joinButton').addEventListener('click', function () {
     window.location.href = 'add-user.html'; // Redirect to the add user page
 });
-document.addEventListener('DOMContentLoaded', function () {
-    let userdetails = window.localStorage.getItem("userdetails");
-    if (userdetails == null) {
-        const joinBtn = document.getElementById("joinButton");
-        joinBtn.style.display = "block";
-    }
-    else{
-        joinBtn.style.display = "none";
-    }
-});
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     let userdetails = window.localStorage.getItem("userdetails");
+//     if (userdetails == null) {
+//         const joinBtn = document.getElementById("joinButton");
+//         joinBtn.style.display = "block";
+//     }
+//     else{
+//         joinBtn.style.display = "none";
+//     }
+// });
