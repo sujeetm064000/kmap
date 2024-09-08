@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Fetch and display user details
-    fetch(`http://localhost:3000/api/details/${rfid}`)
+    fetch(`${API_URL}/api/details/${rfid}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const mode = document.getElementById("mode").value;
         if (mode == "edit") {
-            fetch(`http://localhost:3000/api/updatedetails/${rfid}`, {
+            fetch(`${API_URL}/api/updatedetails/${rfid}`, {
                 method: 'PUT',
                 body: formData
             })
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         }
         else {
-            fetch('http://localhost:3000/api/details', {
+            fetch(`${API_URL}/api/details`, {
                 method: 'POST',
                 headers: {
                     'RFID': rfid

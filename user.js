@@ -29,7 +29,7 @@ document.getElementById('userForm').addEventListener('submit', function (e) {
     const newUser = { rfid, name, password, latitude, longitude };
 
     // Save user data via the API
-    fetch('http://localhost:3000/api/users', {
+    fetch(`${API_URL}/api/users`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

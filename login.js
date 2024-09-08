@@ -4,7 +4,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const rfid = document.getElementById('rfid').value;
     const password = document.getElementById('password').value;
 
-    fetch('http://localhost:3000/api/login', {
+    fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

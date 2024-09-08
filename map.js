@@ -1,5 +1,5 @@
 // Load user details from the backend and display on the map
-fetch('http://localhost:3000/api/getusers')
+fetch(`${API_URL}/api/getusers`)
     .then(response => response.json())
     .then(data => {
         if (data.users.length > 0) {
