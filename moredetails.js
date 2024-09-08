@@ -219,3 +219,21 @@ function addNewDetails() {
     document.getElementById('profileImage').style.visibility = 'hidden';
     document.getElementById('noImageText').style.visibility = 'visible';
 }
+
+document.getElementById('image').addEventListener('change', function (event) {
+    const file = event.target.files[0]; // Get the selected file
+    if (file) {
+        const reader = new FileReader();
+
+        // Once the file is read, set it as the src of the img tag
+        reader.onload = function (e) {
+            const imgPreview = document.getElementById('profileImage');
+            const noImageText = document.getElementById('noImageText');
+            imgPreview.src = e.target.result; // Set the result (image URL) as the src
+            imgPreview.style.visibility = 'visible'; // Show the image tag
+            noImageText.style.visibility = 'hidden';
+        };
+
+        reader.readAsDataURL(file); // Read the file as a data URL (base64-encoded image)
+    }
+});
