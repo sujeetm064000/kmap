@@ -12,154 +12,207 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     height: 100vh;
 }
 
-/* Container for layout */
-.container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
-
-/* Sidebar styling */
-.sidebar {
-    width: 250px;
+/* Navbar styling */
+.navbar {
     background-color: rgb(217 255 0 / 43%);
-    opacity:0.9;
-    color: gray;
-    padding: 2rem 1rem;
+    padding: 1rem;
     display: flex;
-    flex-direction: column;
-    box-shadow: 2px 0 4px rgba(0,0,0,0.1);
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.sidebar h1 {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+.navbar h5 {
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-.sidebar nav a {
+.nav-logos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  
+}
+
+.nav-logos img {
+    width: 60px;
+    height: 80px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navbar nav a {
     color: gray;
     text-decoration: none;
-    display: block;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-radius: 4px;
     transition: background-color 0.3s ease;
 }
 
-.sidebar nav a:hover, .sidebar nav a.active {
+.navbar nav a:hover, .navbar nav a.active {
     background-color: rgb(217 255 0 / 50%);
-    border-radius: 4px;
-}
-
-/* Main content styling */
-.main-content {
-    flex: 1;
-    padding: 2rem;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
-    border: 1px solid #ccc;
-    margin: 2px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Form styling */
-form {
-    max-width: 500px;
-    width: 100%;
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-form label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
-}
-
-form input {
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form button {
-    margin-top: 1rem;
-    padding: 0.75rem;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: rgb(217, 255, 0);
-    cursor: pointer;
-}
-
-/* Map styling */
-#map {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .user-info {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
     display: flex;
-    align-items: left;
-    justify-content: left;
-    flex-direction: column;
-    width: 20%;
+    align-items: center;
+    gap: 1rem;
 }
 
-.circle {
-    width: 50px;
-    height: 50px;
-    background-color: #FFFFFF;
+.user-info .circle {
+    width: 40px;
+    height: 40px;
+    background-color: white;
     color: gray;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
 }
 
-.user-info p {
-    color: grey;
-    text-align: left;
+.user-info a, .user-info button {
+    color: black;
 }
 
-.buttonCss{
+.buttonCss {
     background-color: rgb(217, 255, 0);
-    color: grey;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
-.circular-icon {
-    width: 40px; /* Adjust size as needed */
-    height: 40px; /* Adjust size as needed */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image covers the area */
+.buttonCss:hover {
+    background-color: rgb(200, 245, 0);
 }
+
+/* Main content styling */
+.main-content {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    margin: 2px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Map styling */
+#map {
+    width: 100%;
+    height: calc(100vh - 180px); /* Adjust height for mobile */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    /* For mobile devices */
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .nav-logos img {
+        width: 40px;
+        height: 60px;
+    }
+
+    .navbar nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #map {
+        height: calc(100vh - 240px);
+    }
+
+    .user-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    /* For larger screens */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-logos img {
+        width: 60px;
+        height: 80px;
+    }
+
+    .navbar nav {
+        margin-left: auto;
+    }
+
+    #map {
+        height: calc(100vh - 80px);
+    }
+}
+
+/* Top navigation bar */
+.top-nav {
+    width: 100%;
+    background-color: rgb(217, 255, 0, 0.9);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-nav h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav-links a {
+    color: gray;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgb(217, 255, 0, 0.5);
+    border-radius: 4px;
+}
+
+/* Adjustments for responsive design */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+.circular-icon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+

@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #loginForm {
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            height: auto;
+            max-width: calc(100vw - 40%);
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <h1>Login</h1>
-        </aside>
-        <main class="main-content">
-            <form id="loginForm">
-                <label for="rfid">RFID:</label>
-                <input type="text" id="rfid" name="rfid" required>
+    <!-- Top navigation bar -->
+    <nav class="top-nav">
+        <h1>Login</h1>
+    </nav>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+    <main class="main-content">
+        <form id="loginForm">
+            <label for="rfid">RFID:</label>
+            <input type="text" id="rfid" name="rfid" required>
 
-                <button type="submit">Login</button>
-                <button type="button" id="joinButton" href="add-user.html">Join</button>
-            </form>
-        </main>
-    </div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button class="buttonCss" type="submit">Login</button>
+            <button class="buttonCss" type="button" id="joinButton" onclick="window.location.href='add-user.html'">Join</button>
+        </form>
+    </main>
+
     <script>
-        const API_URL = 'https://kmapbackend-p1f7.vercel.app'; // Centralized API URL
+        const API_URL = 'http://localhost:3000'; // Centralized API URL
     </script>
     <script src="login.js"></script>
 </body>
+
 </html>

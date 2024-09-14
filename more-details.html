@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>More Details</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Additional styles for dropdown and preview */
-        .level-select {
+.level-select {
             width: 100%;
             padding: 0.5rem;
             margin-top: 0.5rem;
@@ -45,12 +45,14 @@
         }
 
         #detailsForm {
-            max-width: calc(100vw - 40%);
+            /* max-width: calc(100vw - 40%); */
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 1rem;
-            height: calc(100vh - 15%);
+            /* height: calc(100vh - 15%); */
+            height: auto;
+            width: auto;
         }
 
         #detailsForm label,
@@ -88,7 +90,7 @@
             margin-bottom: 1rem;
             max-width: 800px;
             margin: 5px 5px;
-            float: right;
+            float: left;
         }
 
         .card img {
@@ -113,62 +115,57 @@
         }
     </style>
 </head>
+
 <body>
-    <input id="mode" value="" type="hidden">
-    <div class="container">
-        <aside class="sidebar">
-            <h1>More Details</h1>
-            <nav>
-                <a href="index.html">Map</a>
-            </nav>
-            <div class="user-info">
-                <div id="userCircle" class="circle"></div>
-                <p id="userName">Please login</p>
+    <!-- Top navigation bar -->
+    <input id="mode" type="hidden" value="" />
+    <nav class="top-nav">
+        <h1>More Details</h1>
+        <div class="nav-links">
+            <a href="index.html">Map</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div id="userCard" style="display: none;"></div>
+        <button class="buttonCss" id="addNewDetails" style="display: none;" onclick="addNewDetails()">Add New Level</button>
+
+        <div class="form-container" id="formContainer" style="display: none;">
+            <form id="detailsForm" enctype="multipart/form-data">
+                <label for="level">Level:</label>
+                <select id="level" name="level" class="level-select" required></select>
+
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience" rows="5" required></textarea>
+
+                <label for="bio">Bio:</label>
+                <input type="text" id="bio" name="bio" required>
+
+                <label for="image">Profile Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+
+                <label for="completionDate">Completion Date:</label>
+                <input type="date" id="completionDate" name="completionDate" required>
+
+                <label for="publicView">
+                    Public View:
+                    <input type="checkbox" id="publicView" name="publicView" required>
+                </label>
+
+                <button class="buttonCss" type="submit">Save Details</button>
+            </form>
+
+            <div class="image-preview">
+                <img id="profileImage" src="" alt="Profile Image" style="visibility: hidden;">
+                <p id="noImageText" style="visibility: hidden;">No profile image available. Please upload one.</p>
             </div>
-        </aside>
-        
-        <main class="main-content">
-            <div id="userCard" style="display: none;">
-                
-            </div>
-            <button class="buttonCss" id="addNewDetails" style="display: none;" onclick="addNewDetails()">Add New Level</button>
+        </div>
+    </main>
 
-            <div class="form-container" id="formContainer" style="display: none;">
-                <form id="detailsForm" enctype="multipart/form-data">
-                    <label for="level">Level:</label>
-                    <select id="level" name="level" class="level-select" required>
-                    </select>
-
-                    <label for="experience">Experience:</label>
-                    <textarea id="experience" name="experience" rows="5" required></textarea>
-
-                    <label for="bio">Bio:</label>
-                    <input type="text" id="bio" name="bio" required>
-
-                    <label for="image">Profile Image:</label>
-                    <input type="file" id="image" name="image" accept="image/*" required>
-
-                    <label for="completionDate">Completion Date:</label>
-                    <input type="date" id="completionDate" name="completionDate" required>
-
-                    <label for="publicView">
-                        Public View:
-                        <input type="checkbox" id="publicView" name="publicView" required>
-                    </label>
-
-                    <button type="submit">Save Details</button>
-                </form>
-
-                <div class="image-preview">
-                    <img id="profileImage" src="" alt="Profile Image" style="visibility: hidden;">
-                    <p id="noImageText" style="visibility: hidden;">No profile image available. Please upload one.</p>
-                </div>
-            </div>
-        </main>
-    </div>
     <script>
-        const API_URL = 'https://kmapbackend-p1f7.vercel.app'; // Centralized API URL
+        const API_URL = 'http://localhost:3000'; // Centralized API URL
     </script>
     <script src="moredetails.js"></script>
 </body>
+
 </html>

@@ -91,7 +91,7 @@ fetch(`${API_URL}/api/getusers`)
             userCircle.textContent = user.name.charAt(0).toUpperCase();
             userName.textContent = user.name;
             logoutButton.style.display = "block";
-    
+            userCircle.style.display = "flex";
             // Show "More Details" and hide "Add User"
             moreDetailsLink.style.visibility = 'visible';
             addUserLink.style.visibility = 'hidden';
@@ -103,6 +103,7 @@ fetch(`${API_URL}/api/getusers`)
             // Show "Add User" and hide "More Details"
             moreDetailsLink.style.visibility = 'hidden';
             addUserLink.style.visibility = 'visible';
+            userCircle.style.display = "none";
         }
     });
     
